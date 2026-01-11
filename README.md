@@ -20,24 +20,40 @@ When working with Claude Code on a project, valuable ideas often emerge mid-conv
 
 ## Installation
 
-### Option 1: User-level (all projects)
-
-Copy the `skill/` folder to your Claude skills directory:
+### Option 1: Clone and install (recommended)
 
 ```bash
-# Windows
-copy skill C:\Users\<you>\.claude\skills\idea-tracker
-
-# macOS/Linux
-cp -r skill ~/.claude/skills/idea-tracker
+git clone https://github.com/SimoneCallegari/claude-idea-tracker.git
+cd claude-idea-tracker
+./install.sh
 ```
 
-### Option 2: Project-level (single project)
+The install script copies `skill/SKILL.md` and `examples/` to `~/.claude/skills/idea-tracker/`.
 
-Copy the `skill/` folder to your project:
+### Option 2: Manual installation
+
+Copy both `skill/` contents and `examples/` to your Claude skills directory:
 
 ```bash
-cp -r skill your-project/.claude/skills/idea-tracker
+# macOS/Linux
+mkdir -p ~/.claude/skills/idea-tracker
+cp skill/SKILL.md ~/.claude/skills/idea-tracker/
+cp -r examples ~/.claude/skills/idea-tracker/
+
+# Windows (Git Bash)
+mkdir -p ~/.claude/skills/idea-tracker
+cp skill/SKILL.md ~/.claude/skills/idea-tracker/
+cp -r examples ~/.claude/skills/idea-tracker/
+```
+
+### Option 3: Project-level (single project)
+
+Copy to your project's `.claude/skills/` folder:
+
+```bash
+mkdir -p your-project/.claude/skills/idea-tracker
+cp skill/SKILL.md your-project/.claude/skills/idea-tracker/
+cp -r examples your-project/.claude/skills/idea-tracker/
 ```
 
 ## Usage
